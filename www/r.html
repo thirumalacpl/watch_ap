@@ -1,0 +1,165 @@
+
+<style type="text/css">
+
+#sliderqa {
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto 0 auto;
+  border-radius: 4px;
+}
+
+#sliderqa ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 200px;
+  list-style: none;
+}
+
+#sliderqa ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 500px;
+  height: 300px;
+  background: #ccc;
+  text-align: center;
+  line-height: 300px;
+}
+
+a.control_prev, a.control_next {
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  display: block;
+  padding: 4% 3%;
+  width: auto;
+  height: auto;
+  background: #54566B;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+a.control_prev:hover, a.control_next:hover {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease;
+      background-color: #54566B;
+}
+
+a.control_prev {
+  border-radius: 0 2px 2px 0;
+}
+
+a.control_next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+.slider_option {
+  position: relative;
+  margin: 10px auto;
+  width: 160px;
+  font-size: 18px;
+}
+
+</style>
+<script type="text/javascript">
+  jQuery(document).ready(function ($) {
+
+  $('#checkbox').change(function(){
+    //http://bit.ly/1LRZGaY
+    setInterval(function () {
+        moveRight();
+    }, 3000);
+  });
+  
+  var slideCount = $('#sliderqa ul li').length;
+  var slideWidth = $('#sliderqa ul li').width();
+  var slideHeight = $('#sliderqa ul li').height();
+  var sliderUlWidth = slideCount * slideWidth;
+  
+  $('#sliderqa').css({ width: slideWidth, height: slideHeight });
+  
+  $('#sliderqa ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+  
+    $('#sliderqa ul li:last-child').prependTo('#sliderqa ul');
+
+    function moveLeft() {
+        $('#sliderqa ul').animate({
+            left: + slideWidth
+        }, 200, function () {
+            $('#sliderqa ul li:last-child').prependTo('#sliderqa ul');
+            $('#sliderqa ul').css('left', '');
+        });
+    };
+
+    function moveRight() {
+        $('#sliderqa ul').animate({
+            left: - slideWidth
+        }, 200, function () {
+            $('#sliderqa ul li:first-child').appendTo('#sliderqa ul');
+            $('#sliderqa ul').css('left', '');
+        });
+    };
+
+    $('a.control_prev').click(function () {
+        moveLeft();
+    });
+
+    $('a.control_next').click(function () {
+        moveRight();
+    });
+
+
+
+});    
+
+</script>
+
+<style type="text/css">
+.iGallery   {list-style:none; padding:0px; margin:0px}
+.iGallery li  {list-style:none; padding:2px; margin:2px; border:1px solid #999; float:left}
+
+/* imageflip CSS. Copy & Paste this to your CSS file */
+#imageflippage  {background-color:#000; margin:0px; padding:0px; border:none; height:100%; width:100%}
+#tadcontent   {padding:0px; margin:0px; position:relative; background:#000; height:100%; width:100%;}
+#imageflipimg {vertical-align:middle; height:100%; width:100%; z-index:98; background-position:center; background-size:100% 100%; text-align:center; background-repeat:no-repeat }
+#imagefliper  {width:100%; top:45px; bottom:0px; position:absolute; z-index:99}
+#tadnavi    {position:fixed; top:0px; z-index:100; width:100%; opacity:0.7; display:block }
+#tadinfo    {position:fixed; display:none; bottom:0px; width:100%; padding:5px; background-color:#333333; opacity:0.7; color:#FFFFFF; text-align:center; font-size:small; font-family:Verdana, Geneva, sans-serif}
+
+</style>
+<script type="text/javascript">
+$(document).on('pageshow', '#sh_tobe_approved_inside', function(){  
+  $('.iGallery').imageflip()
+  //alert('8');
+})
+</script>
+
+
+
+<div class="ui-grid-solo">
+  <div class="ui-block-a">
+
+<div id="sliderq" style="width: 500px; height: 300px;">
+  <a href="#" class="control_next">></a>
+  <a href="#" class="control_prev"><</a>
+ <ul class="iGallery ssnew" style="width: 2000px; margin-left: -500px;" >
+
+
+<!--   <li >slide 1</li>
+     <li style="background: #aaa;" > slide 2</li>
+    <li >slide 3</li>
+     <li style="background: #aaa;" > slide 4</li>  -->
+ 
+  </ul>
+
+</div>
+</div>
+</div>
