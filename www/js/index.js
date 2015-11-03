@@ -1,8 +1,13 @@
-$(document).on('pagecreate', '#pageone', function(){ 
-    //alert("hidash");
-/*    if(sessionStorage.getItem("logged_in")=="1"){
-           $.mobile.changePage($('#dashboard'), { transition: "none", changeHash: true, reverse: false }); 
-    }*/
+$(document).on('pageshow', '#pageone', function(){ 
+    alert("hidash");
+  if(sessionStorage.getItem("logged_in")=="1"){
+              $.mobile.changePage($('#dashboard'), { transition: "none", changeHash: true, reverse: false }); 
+   return false;
+    }
+     if(sessionStorage.getItem("logged_in")=="2"){
+              $.mobile.changePage($('#dashboard_sh'), { transition: "none", changeHash: true, reverse: false }); 
+   return false;
+    }
 $(document).off('click', '#submit').on('click', '#submit', function() { 
     if($('#username').val().length > 0 && $('#password').val().length > 0){
         console.log($('#check-watchuser').serialize());
@@ -57,7 +62,7 @@ success: function (result) {
     }
     if( pass != ''){
       //alert(pass+'co');
-         sessionStorage.setItem("logged_in","1");
+         sessionStorage.setItem("logged_in","2");
        
             sessionStorage.setItem("sh_regionarray",JSON.stringify(result[16]));
             sessionStorage.setItem("sh_new_veri_list",JSON.stringify(result[17]));
