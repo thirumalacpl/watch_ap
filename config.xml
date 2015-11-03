@@ -1,6 +1,6 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.advs.manhummel.lpa" version="1.1.0">
-  <name>WATCHGUARDlive_tab</name>
-  <description>WATCHGUARDlive_tab</description>
+  <name>WATCHGUARDlive_new tab</name>
+  <description>WATCHGUARDlive_new tab</description>
   <author href="http://advicesync.com" email="support@advicesync.com">eImpressive</author>
   <content src="index.html"/>
 
